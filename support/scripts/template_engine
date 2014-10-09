@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 2 ]
+then
+	if [ -f "$1" ]
+	then
+		dataFile="${1%.*}.sh"
+		if [ -f "$dataFile" ]
+		then
+			source "$dataFile"
+
+			if [ -d "${2%/*}" ]
+			then
+				while read
+				do
+					eval "echo \"$REPLY\""
+				done < "$1" > "$2"
+			else
+				echo -e "\033[35mDirectory not found:\033[0m ${2}"
+			fi
+		else
+			echo -e "\033[31mFile not found:\033[0m ${dataFile}"
+		fi
+	else
+		echo -e "\033[31mFile not found:\033[0m ${1}"
+	fi
+else
+	echo -e "\033[35mUsage:\033[0m ${0##*/} <template> <output>"
+fi

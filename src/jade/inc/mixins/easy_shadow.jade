@@ -1,0 +1,38 @@
+mixin bareTable
+	table(border='0',cellpadding='0',cellspacing='0')&attributes(attributes)
+		if block
+			block
+
+mixin easyShadow
+	.easyShadow&attributes(attributes)
+		+bareTable.fluidTable
+			tr
+				td.box_shadow_a
+				td
+					+bareTable.shadowGroupNorth: tr
+						td.box_shadow_b
+						td.box_shadow_c
+						td.box_shadow_d
+				td.box_shadow_e
+			tr
+				td
+					+bareTable.shadowGroupWest
+						tr: td.box_shadow_f
+						tr: td.box_shadow_g
+						tr: td.box_shadow_h
+				td.easyShadowContent
+					if block
+						block
+				td
+					+bareTable.shadowGroupEast
+						tr: td.box_shadow_i
+						tr: td.box_shadow_j
+						tr: td.box_shadow_k
+			tr
+				td.box_shadow_l
+				td
+					+bareTable.shadowGroupSouth: tr
+						td.box_shadow_m
+						td.box_shadow_n
+						td.box_shadow_o
+				td.box_shadow_p

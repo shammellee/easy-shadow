@@ -1,0 +1,49 @@
+include inc/config
+include inc/mixins/easy_shadow
+
+doctype strict
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		link(href='css/easy_shadow.css',rel='stylesheet',type='text/css')
+		style.
+			html,body,.shell{height:100%;width:100%;font-family:Helvetica,Arial,sans-serif}
+			.content
+			{
+				background:aquamarine;
+				color:#66A594;
+				display:table-cell;
+				height:200px;
+				width:200px;
+				text-align:center;
+				vertical-align:middle;
+				-webkit-animation:sizePulse 1s infinite alternate ease-in-out;
+				-moz-animation:sizePulse 1s infinite alternate ease-in-out;
+				-o-animation:sizePulse 1s infinite alternate ease-in-out;
+				animation:sizePulse 1s infinite alternate ease-in-out;
+			}
+			@-webkit-keyframes sizePulse
+			{
+				0%   {width:200px;height:200px}
+				100% {width:400px;height:400px}
+			}
+			@-moz-keyframes sizePulse
+			{
+				0%   {width:200px;height:200px}
+				100% {width:400px;height:400px}
+			}
+			@-o-keyframes sizePulse
+			{
+				0%   {width:200px;height:200px}
+				100% {width:400px;height:400px}
+			}
+			@keyframes sizePulse
+			{
+				0%   {width:200px;height:200px}
+				100% {width:400px;height:400px}
+			}
+			
+	body
+		table.shell: tr: td(align='center',valign='middle')
+			+easyShadow
+				.content!= PROJECT_NAME

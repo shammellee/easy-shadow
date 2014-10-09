@@ -1,0 +1,5 @@
+build
+src/img/sprites/sprite.conf
+src/jade/inc/config.jade
+src/styl/inc/sprites
+src/templates/**/*.sh
